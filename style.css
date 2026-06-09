@@ -1,0 +1,945 @@
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background-color: #0e0e0e;
+    /* Certifique-se que a imagem existe na pasta */
+    background-image: url("fundo.png"); 
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f2f2f2;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER CONCEITO ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(230, 216, 181, 0.1);
+}
+
+.main-header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.main-header nav a {
+    text-decoration: none;
+    color: #e6d8b5;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-header nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(230, 216, 181, 0.5);
+}
+
+.logo img {
+    height: 35px;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(230, 216, 181, 0.1);
+}
+
+.main-header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.main-header nav a {
+    text-decoration: none;
+    color: #e6d8b5;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-header nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(230,216,181,0.5);
+}
+
+.logo img {
+    height: 35px;
+}
+
+/* ================= HERO ================= */
+.hero-section {
+    height: 100vh;
+    background: url("background.png") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 15%;
+    position: relative;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.9)
+    );
+}
+
+.hero-section h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #f5e9c8;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+
+.hero-section p {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    color: #d1c7ac;
+}
+
+/* ================= SEÇÕES GERAIS ================= */
+.content-section {
+    padding: 100px 10%;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ================= DIVISÃO FLUTUANTE ================= */
+
+.divisao-img {
+    position: absolute;
+
+    /* POSIÇÃO */
+    top: -535px;             /* 🔼 sobe / 🔽 desce */
+    left: 50%;               /* ↔ eixo horizontal */
+
+    transform: translateX(-50%);
+
+    /* TAMANHO */
+    width: 130%;
+    max-width: none;
+    height: auto;
+
+    /* VISUAL */
+    opacity: 1;              /* totalmente visível */
+    filter: 
+        drop-shadow(0 20px 50px rgba(0,0,0,0.7));
+
+    /* GARANTE QUE NÃO HERDA EFEITOS */
+    mix-blend-mode: normal;
+}
+
+
+/* ================= DIVISÃO INÍCIO → SINOPSE ================= */
+
+.divisao-inicio {
+    position: relative;
+    width: 100%;
+    height: clamp(180px, 22vw, 320px); /* controla o espaço */
+    margin-top: -100px; /* puxa pra cima no desktop */
+    z-index: 50;
+    pointer-events: none;
+}
+
+.divisao-inicio .divisao-img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+
+    width: clamp(320px, 70vw, 1100px);
+    height: auto;
+
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6));
+}
+
+/* 📱 TABLET */
+@media (max-width: 768px) {
+    .divisao-inicio {
+        height: 160px;
+        margin-top: -60px;
+    }
+
+    .divisao-inicio .divisao-img {
+        width: 90%;
+    }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+    .divisao-inicio {
+        height: 130px;
+        margin-top: -40px;
+    }
+
+    .divisao-inicio .divisao-img {
+        width: 95%;
+    }
+}
+
+/* ================= SINOPSE ================= */
+.book-info {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+
+    /* FUNDO DA SINOPSE */
+    background: rgba(10, 15, 10, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    padding: 60px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 216, 181, 0.25);
+
+    box-shadow: 
+        0 0 0 1px rgba(0,0,0,0.4),
+        0 20px 60px rgba(0,0,0,0.6);
+}
+
+.book-cover img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(230,216,181,0.2);
+}
+
+.book-text {
+    max-width: 600px;
+}
+
+.book-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #f3e6c3;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.book-text p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #e0e0e0;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* ================= BOTÃO COMPRE AGORA ================= */
+
+.btn-compre {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 42px;
+    background: linear-gradient(135deg, #2f598f, #5a9dc4);
+    color: #0e0e0e;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+}
+
+.btn-compre:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    background: linear-gradient(135deg, #5a6ac4, #6c7edf);
+}
+
+/* ================= DIVISÃO CUTECUTE (FINAL) ================= */
+
+.divisao-wrapper {
+    position: relative;
+    width: 100%;
+    height: clamp(200px, 30vw, 420px);
+    margin-top: -120px;
+    z-index: 80;
+    pointer-events: none;
+}
+
+.cutecute-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60%;        /* DESKTOP */
+    max-width: 900px;
+    height: auto;
+
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+    z-index: 999;
+}
+
+@media (max-width: 768px) {
+    .divisao-wrapper {
+        height: 220px;
+        margin-top: -80px;
+    }
+
+    .cutecute-img {
+        width: 40%;   /* 🔥 MENOR NO MOBILE */
+    }
+}
+
+@media (max-width: 480px) {
+    .divisao-wrapper {
+        height: 180px;
+        margin-top: -60px;
+    }
+
+    .cutecute-img {
+        width: 15%;   /* 🔥 AINDA MENOR */
+    }
+}
+
+
+
+/* ================= SINOPSE & CAPÍTULO GRATUITO ================= */
+.book-info,
+.chapter-box {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    background: rgba(10,15,10,0.75);
+    backdrop-filter: blur(6px);
+    padding: 60px;
+    border-radius: 14px;
+    border: 1px solid rgba(230,216,181,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    max-width: 1100px;
+    margin: 120px auto;
+}
+
+/* CAPÍTULO usa layout em coluna */
+.chapter-box {
+    flex-direction: column;
+}
+
+.book-cover img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+.book-text {
+    max-width: 600px;
+}
+
+.book-text h2,
+.chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #f3e6c3;
+    text-align: center;
+}
+
+.book-text p,
+.chapter-content {
+    font-size: 18px;
+    color: #e0e0e0;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* ================= LER MAIS ================= */
+.chapter-content.fade-effect {
+    max-height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.chapter-content.fade-effect::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(transparent, rgba(10,15,10,0.9));
+}
+
+.btn-leitura {
+    margin-top: 30px;
+    padding: 12px 35px;
+    border: 1px solid #e6d8b5;
+    background: transparent;
+    color: #e6d8b5;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-leitura:hover {
+    background: #e6d8b5;
+    color: #151515;
+}
+
+/* ================= BOTÃO COMPRE ================= */
+.btn-compre {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 42px;
+    background: linear-gradient(135deg, #2f698f, #5a6dc4);
+    color: #0e0e0e;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+/* ================= AJUSTE MOBILE ================= */
+@media (max-width: 768px) {
+    .cutecute-img {
+        top: -900px;     /* AJUSTE FINO NO MOBILE */
+        width: 85%;
+    }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 480px) {
+    .cutecute-img {
+        top: -720px;     /* AJUSTE MILIMÉTRICO */
+        width: 95%;
+    }
+}
+
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+
+    .hero-section h1 {
+        font-size: 30px;
+    }
+
+    .book-info,
+    .chapter-box {
+        flex-direction: column;
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .book-cover img {
+        width: 220px;
+    }
+
+    .divisao-wrapper img {
+        width: 200%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-section h1 {
+        font-size: 24px;
+    }
+
+    .book-text h2,
+    .chapter-title {
+        font-size: 26px;
+    }
+}
+
+/* ========================================================
+   AQUI ESTAVA O ERRO: REMOVIDO O BLOCO "BOX GERAL" ANTIGO
+   QUE CAUSAVA O QUADRADO DUPLICADO.
+   
+   AGORA SÓ EXISTE O BLOCO "AMOR DOCE" ABAIXO.
+   ======================================================== */
+
+/*QUADRADO AMOR DOCE*/
+/*quadrado amor doce corrigido*/
+.personagens-box {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 850px; /* Reduzi para ficar mais compacto como na foto */
+    margin: 80px auto;
+    background: rgba(10, 15, 10, 0.85); /* Fundo único */
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(230,216,181,0.2);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    align-items: center;
+}
+
+/* Garante que não haja nenhum fundo no container pai */
+section:has(.personagens-box) {
+    background: transparent !important;
+    padding: 0;
+}
+
+/* IMAGEM GRANDE */
+.personagem-grande img {
+    height: 420px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* TEXTO */
+.personagem-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+}
+
+.personagem-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #f3e6c3;
+    margin-bottom: 12px;
+}
+
+.personagem-info p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+/* GRADE DOS QUADRADOS */
+.grade-personagens {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 18px;
+}
+
+/* QUADRADOS */
+.quad {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CORES */
+.verde { background: #4cd137; }
+.roxo { background: #c445ff; }
+.laranja { background: #ff7f32; }
+.rosa { background: #ff6ec7; }
+.amarelo { background: #f6e05e; }
+.azul { background: #4b4bff; }
+.vermelho { background: #ff3b3b; }
+
+/* BLOQUEADOS */
+.bloqueado {
+    opacity: 0.35;
+    position: relative;
+}
+
+.bloqueado::after {
+    content: "✖";
+    font-size: 20px;
+    color: rgba(0,0,0,0.6);
+}
+
+
+
+.arquivos-box {
+    text-align: center;
+    padding: 50px 30px;
+    background: rgba(10, 15, 10, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(230,216,181,0.2);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    max-width: 600px; /* Mais estreito para combinar com a imagem */
+    margin: 80px auto;
+}
+
+.arquivos-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #f3e6c3;
+    margin-bottom: 25px;
+}
+
+.arquivos-texto {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 45px;
+}
+
+/* BOTÃO */
+.botao-arquivos {
+    display: inline-block;
+    padding: 18px 42px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0b0f0b;
+    background: linear-gradient(135deg, #f3e6c3, #d8caa0);
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+}
+
+/* HOVER */
+.botao-arquivos:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    background: linear-gradient(135deg, #fff1c9, #e6d7a8);
+}
+
+/* ================= CUTECUTE FINAL E LIMPO ================= */
+
+.cutecute-divider {
+  position: relative;
+  width: 100%;
+  height: 260px;          /* espaço controlado */
+  margin: -120px 0;      /* sobe entre sinopse e capítulo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.cutecute-divider img {
+  width: 70%;             /* DESKTOP */
+  max-width: 700px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
+
+/* 📱 TABLET */
+@media (max-width: 768px) {
+  .cutecute-divider {
+    height: 200px;
+    margin: -90px 0;
+  }
+
+  .cutecute-divider img {
+    width: 60%;           /* DIMINUI DE VERDADE */
+  }
+  
+  /* AJUSTE RESPONSIVO PARA O BOX PERSONAGENS AMOR DOCE */
+  /* Adicionado aqui pois o código antigo que fazia isso foi removido */
+  .personagens-box {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+  }
+  
+  .personagem-grande img {
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 20px;
+  }
+  
+  .grade-personagens {
+      justify-content: center;
+  }
+}
+
+/* 📱 MOBILE PEQUENO */
+@media (max-width: 480px) {
+  .cutecute-divider {
+    height: 160px;
+    margin: -70px 0;
+  }
+
+  .cutecute-divider img {
+    width: 30%;           /* BEM MENOR */
+  }
+}
+
+
+
+/* GRADE */
+.grade-personagens {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 14px;
+  margin-top: 25px;
+}
+
+/* QUADRADOS */
+.quad {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.quad:hover {
+  transform: scale(1.06);
+}
+
+/* BLOQUEADOS */
+.quad.bloqueado {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: not-allowed;
+  position: relative;
+  filter: grayscale(1) brightness(0.6);
+}
+
+/* ÍCONE DE CADEADO */
+.quad.bloqueado::after {
+  content: "🔒";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+/* EVITA CLIQUE */
+.quad.bloqueado {
+  pointer-events: none;
+}
+
+
+
+/* ================= DIVISAO FINAL FUNCIONAL ================= */
+
+.divisao-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;        /* espaço do efeito */
+    margin-top: -80px;    /* aproxima da seção de cima */
+    z-index: 50;
+    pointer-events: none;
+}
+
+/* IMAGEM */
+.divisao-img {
+    position: absolute;
+    top: 50%;             /* controla subir/descer */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;           /* DESKTOP */
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .divisao-wrapper {
+        height: 220px;
+        margin-top: -60px;
+    }
+
+    .divisao-img {
+        width: 50%;       /* DIMINUI DE VERDADE */
+        top: 50%;         /* desce um pouco */
+    }
+}
+
+/* CELULAR */
+@media (max-width: 480px) {
+    .divisao-wrapper {
+        height: 180px;
+        margin-top: -40px;
+    }
+
+    .divisao-img {
+        width: 42%;       /* MENOR AINDA */
+        top: 58%;
+    }
+}
+
+/* ================= DESKTOP – SÓ AQUI AUMENTA ================= */
+@media (min-width: 1025px) {
+    .divisao-wrapper {
+        height: 260px;
+        margin-top: -80px;
+    }
+
+    .divisao-img {
+        width: 110%;   /* 🔥 AUMENTA SÓ NO DESKTOP */
+        top: 58%;
+    }
+}
+
+
+/* ================= CURSOR BLOQUEADO ================= */
+
+.ponto-bloqueado {
+    cursor: not-allowed;
+}
+
+/* se quiser garantir que nada seja clicável */
+.ponto-bloqueado {
+    pointer-events: auto;
+}
+
+
+
+/* Isso garante que um card fique abaixo do outro, e não do lado */
+#personagens, #arquivos {
+    display: flex;
+    flex-direction: column; /* Força o conteúdo a ficar vertical */
+    margin: 40px auto;      /* Espaço entre os cards e centraliza */
+    width: 90%;             /* Não deixa colar nas bordas da tela */
+    max-width: 800px;       /* Tamanho máximo para não ficar gigante */
+    float: none;            /* Remove qualquer tentativa de ficar lado a lado */
+    clear: both;            /* Garante que a linha esteja limpa */
+}
+
+/* Ajuste específico para o card de personagens */
+.personagens-box {
+    display: flex;
+    flex-direction: row !important; /* Foto de um lado, texto do outro */
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Impede que a imagem da Almi cresça demais */
+.personagem-grande img {
+    max-width: 300px; /* Ajuste esse valor para o tamanho que desejar */
+    height: auto;
+}
+
+/* ================= FOOTER ================= */
+
+.main-footer {
+    margin-top: 160px;
+    padding: 60px 20px 40px;
+    text-align: center;
+    background: linear-gradient(
+        to top,
+        rgba(10,15,10,0.95),
+        rgba(10,15,10,0.6),
+        transparent
+    );
+    border-top: 1px solid rgba(230,216,181,0.15);
+}
+
+/* LINKS */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #e6d8b5;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* LINHA ELEGANTE NO HOVER */
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 1px;
+    background: #e6d8b5;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* COPYRIGHT */
+.copyright {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: rgba(230,216,181,0.65);
+}
+
+.copyright span {
+    font-family: 'Playfair Display', serif;
+    color: #f3e6c3;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .footer-links {
+        gap: 25px;
+    }
+
+    .footer-links a {
+        font-size: 12px;
+    }
+}
+
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-family: 'Crimson Text', serif;
+  font-size: 22px;
+  font-style: italic;
+}

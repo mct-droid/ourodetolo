@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Arquivos</title>
+  <link rel="stylesheet" href="arquivos.css">
+</head>
+
+<body>
+
+<div class="arquivos-container">
+
+  <!-- LOGIN GERAL -->
+  <div id="login">
+    <h1>Arquivos da Corte</h1>
+    <p class="aviso">
+    
+      Digite a senha para acessar os arquivos escondidos.
+    </p>
+
+    <input type="password" id="senhaGeral" placeholder="Senha de acesso">
+    <button onclick="verificarSenhaGeral()">Acessar</button>
+  </div>
+
+  <!-- CAPÍTULOS -->
+  <div id="area-capitulos" class="hidden">
+
+    <h2>Capítulos</h2>
+
+<div class="capitulos-lista">
+  <button onclick="pedirSenha('prologo')">Prólogo</button>
+  <button onclick="pedirSenha('estranhos')">Estranhos</button>
+  <button onclick="pedirSenha('tradicoes')">Tradições</button>
+  <button onclick="pedirSenha('amarilis')">Amarilis</button>
+  <button onclick="pedirSenha('papofurado')">Papo Furado</button>
+  <button onclick="pedirSenha('dama')">Dama</button>
+  <button onclick="pedirSenha('lehiaequor')">Lehi Aequor</button>
+  <button onclick="pedirSenha('perigo')">Perigo.</button>
+  <button onclick="pedirSenha('melina')">Melina Cronida</button>
+  <button onclick="pedirSenha('meera')">Meera Khamet</button>
+  <button onclick="pedirSenha('anima')">Ânima</button>
+  <button onclick="pedirSenha('consequencias')">Consequências</button>
+  <button onclick="pedirSenha('halan')">Halan Veridan</button>
+  <button onclick="pedirSenha('algoruim')">Algo Ruim</button>
+</div>
+
+    <div class="conteudo" id="conteudo"></div>
+  </div>
+
+</div>
+
+<!-- MODAL SENHA -->
+<div class="modal hidden" id="modalSenha">
+  <div class="modal-box">
+    <span class="fechar" onclick="fecharModal()">×</span>
+    <h3 id="tituloCapitulo"></h3>
+
+    <input type="password" id="senhaCapitulo" placeholder="Código do capítulo">
+    <button onclick="verificarSenhaCapitulo()">Desbloquear</button>
+  </div>
+</div>
+
+<script>
+
+
+
+/* ===== SENHAS ===== */
+const senhaGeral = "monopolio";
+
+const senhasCapitulos = {
+  prologo: "0072",
+  estranhos: "0112",
+  tradicoes: "0230",
+  amarilis: "0341",
+  papofurado: "3592",
+  dama: "4702",
+  lehiaequor: "6832",
+  perigo: "7952",
+  melina: "8132",
+  meera: "9116",
+  anima: "1128",
+  consequencias: "1472",
+  halan: "2752",
+  algoruim: "3332"
+};
+
+let capituloAtual = "";
+
+/* LOGIN */
+function verificarSenhaGeral() {
+  if (document.getElementById("senhaGeral").value === senhaGeral) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("area-capitulos").classList.remove("hidden");
+  } else {
+    alert("Senha incorreta.");
+  }
+}
+
+/* ABRIR MODAL */
+function pedirSenha(cap) {
+  capituloAtual = cap;
+
+  const titulos = {
+    prologo: "Prólogo",
+    estranhos: "Estranhos",
+    tradicoes: "Tradições",
+    amarilis: "Amarilis",
+    papofurado: "Papo Furado",
+    dama: "Dama",
+    lehiaequor: "Lehi Aequor",
+    perigo: "Perigo.",
+    melina: "Melina Cronida",
+    meera: "Meera Khamet",
+    anima: "Ânima",
+    consequencias: "Consequências",
+    halan: "Halan Veridan",
+    algoruim: "Algo Ruim"
+  };
+
+  document.getElementById("tituloCapitulo").innerText = titulos[cap];
+  document.getElementById("modalSenha").classList.remove("hidden");
+}
+
+/* FECHAR MODAL */
+function fecharModal() {
+  document.getElementById("modalSenha").classList.add("hidden");
+  document.getElementById("senhaCapitulo").value = "";
+}
+
+/* VERIFICAR CAPÍTULO */
+function verificarSenhaCapitulo() {
+  const senha = document.getElementById("senhaCapitulo").value;
+
+  if (senha !== senhasCapitulos[capituloAtual]) {
+    alert("Código incorreto.");
+    return;
+  }
+
+  mostrarConteudo(capituloAtual);
+  fecharModal();
+}
+
+
+
+
+
+
+
+
+/* CONTEÚDO */
+/* CONTEÚDO */
+function mostrarConteudo(cap) {
+  const area = document.getElementById("conteudo");
+
+  if (cap === "prologo") {
+    area.innerHTML = `
+      <h3>Prólogo</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartacasamento1.png">
+        <img src="imagensarquivo/cartacasamento2.png">
+      </div>
+    `;
+  }
+
+  if (cap === "estranhos") {
+    area.innerHTML = `
+      <h3>Estranhos</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartabea.png">
+      </div>
+    `;
+  }
+
+  if (cap === "tradicoes") {
+    area.innerHTML = `
+      <h3>Tradições</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartadagur1.png">
+        <img src="imagensarquivo/cartadagur2.png">
+        <img src="imagensarquivo/cartadagur3.png">
+        <img src="imagensarquivo/cartadagur4.png">
+      </div>
+    `;
+  }
+
+  if (cap === "amarilis") {
+    area.innerHTML = `
+      <h3>Amarilis</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartanott.png">
+      </div>
+    `;
+  }
+
+  if (cap === "papofurado") {
+    area.innerHTML = `
+      <h3>Papo Furado</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartaalmirritante.png">
+      </div>
+    `;
+  }
+
+  if (cap === "dama") {
+    area.innerHTML = `
+      <h3>Dama</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartamanvi1.png">
+        <img src="imagensarquivo/cartamanvi2.png">
+      </div>
+    `;
+  }
+
+  if (cap === "lehiaequor") {
+    area.innerHTML = `
+      <h3>Lehi Aequor</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartalehi1.png">
+        <img src="imagensarquivo/cartalehi2.png">
+        <img src="imagensarquivo/cartalehi3.png">
+      </div>
+    `;
+  }
+
+  if (cap === "perigo") {
+    area.innerHTML = `
+      <h3>Perigo.</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartamorra1.png">
+        <img src="imagensarquivo/cartamorra2.png">
+      </div>
+    `;
+  }
+
+  if (cap === "melina") {
+    area.innerHTML = `
+      <h3>Melina Cronida</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartalouquinhdocentro.png">
+      </div>
+    `;
+  }
+
+  if (cap === "meera") {
+    area.innerHTML = `
+      <h3>Meera Khamet</h3>
+      <div class="galeria">
+        <!-- Adicione as imagens aqui -->
+      </div>
+    `;
+  }
+
+  if (cap === "anima") {
+    area.innerHTML = `
+      <h3>Ânima</h3>
+      <div class="galeria">
+        <!-- Adicione as imagens aqui -->
+      </div>
+    `;
+  }
+
+  if (cap === "consequencias") {
+    area.innerHTML = `
+      <h3>Consequências</h3>
+      <div class="galeria">
+        <!-- Adicione as imagens aqui -->
+      </div>
+    `;
+  }
+
+  if (cap === "halan") {
+    area.innerHTML = `
+      <h3>Halan Veridan</h3>
+      <div class="galeria">
+        <!-- Adicione as imagens aqui -->
+      </div>
+    `;
+  }
+
+  if (cap === "algoruim") {
+    area.innerHTML = `
+      <h3>Algo Ruim</h3>
+      <div class="galeria">
+        <!-- Adicione as imagens aqui -->
+      </div>
+    `;
+  }
+}
+  
+
+
+
+
+
+</script>
+
+</body>
+</html>
