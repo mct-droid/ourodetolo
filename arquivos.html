@@ -42,6 +42,7 @@
   <button onclick="pedirSenha('consequencias')">Consequências</button>
   <button onclick="pedirSenha('halan')">Halan Veridan</button>
   <button onclick="pedirSenha('algoruim')">Algo Ruim</button>
+  <button onclick="pedirSenha('extra')">Extra</button>
 </div>
 
     <div class="conteudo" id="conteudo"></div>
@@ -82,6 +83,7 @@ const senhasCapitulos = {
   consequencias: "1472",
   halan: "2752",
   algoruim: "3332"
+  extra: "3782"
 };
 
 let capituloAtual = "";
@@ -115,6 +117,7 @@ function pedirSenha(cap) {
     consequencias: "Consequências",
     halan: "Halan Veridan",
     algoruim: "Algo Ruim"
+    extra: "Extra"
   };
 
   document.getElementById("tituloCapitulo").innerText = titulos[cap];
@@ -287,6 +290,14 @@ function mostrarConteudo(cap) {
       <h3>Algo Ruim</h3>
       <div class="galeria">
         <img src="imagensarquivo/cartac.png">
+      </div>
+    `;
+  }
+    if (cap === "extra") {
+    area.innerHTML = `
+      <h3>Extra</h3>
+      <div class="galeria">
+        <img src="imagensarquivo/cartaextra.png">
       </div>
     `;
   }
